@@ -21,9 +21,9 @@ We try to eliminate clutter by focusing on only the necessary information at all
 
 ## Getting Started
 
-1. Clone this repository: `git clone https://github.com/username/pocus.git`
+1. Clone this repository: `git clone https://github.com/eduardofuncao/pocus.git`
 2. Install dependencies: `npm install` 
-3. Start the application: `npm start`
+3. Start the application: `npm run dev`
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
