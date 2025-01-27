@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -49,14 +49,17 @@ const Tasks = ({tasks, setTasks}) => {
             <h2 className='text-4xl text-center mb-2'>What is your focus for today?</h2>
             <form action="">
                 {tasks.map((task, index) => (
-                <div key={index} >
+                
+                
+                
+                <motion.div initial={{x:-100}} animate={{x: 0}} key={index} >
                     <input className='mr-4 border-b w-72 focus:outline-none'
                     type="text"
                     placeholder={task.name} 
                     onChange={(event) => handleNameChange(event, index)}
                     />
                     <input 
-                    className='[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none w-8 focus:outline-none'
+                    className="[-moz-appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 w-12 focus:outline-none"
                     type="number" 
                     placeholder='10 min' 
                     value={task.time}
@@ -71,7 +74,7 @@ const Tasks = ({tasks, setTasks}) => {
                             <FontAwesomeIcon icon={faPlus} />
                         </button>
                     </div>
-                </div>
+                </motion.div>
                 ))}
                 <div className="flex justify-center mt-8">
                     <Link to="/focus-timer"  state={tasks} className='btn btn-neutral mt-16 text-white'>Enter Pocus Session</Link>

@@ -4,6 +4,7 @@ import { useState, useEffect} from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faPause, faPlay, faX} from '@fortawesome/free-solid-svg-icons';
 
+import { motion } from "motion/react";
 
 
 const FocusTimer = () => {
@@ -63,9 +64,9 @@ const FocusTimer = () => {
     return (
         <div className="flex flex-grow justify-center items-center">
             <div className="flex flex-col items-center">
-                <h3 className="text-gray-300 line-through">{tasks[currentTaskIndex-1]? tasks[currentTaskIndex-1].name +"'ed": <div></div>}</h3>
-                <h2 className="text-4xl">{tasks[currentTaskIndex].name}'ing</h2>
-                <h3 className="text-gray-300">{tasks[currentTaskIndex+1]? 'will ' + tasks[currentTaskIndex+1].name: 'will finish'}</h3>
+                <motion.h3 key={currentTaskIndex-1} initial={{y:25}} animate={{y:0}} className="text-gray-300 line-through">{tasks[currentTaskIndex-1]? tasks[currentTaskIndex-1].name +"'ed": <div>started</div>}</motion.h3>
+                <motion.h2 key={currentTaskIndex} initial={{y:25}} animate={{y:0}} className="text-4xl">{tasks[currentTaskIndex].name}'ing</motion.h2>
+                <motion.h3 key={tasks[currentTaskIndex+1]} initial={{y:25}} animate={{y:0}} className="text-gray-300">{tasks[currentTaskIndex+1]? 'will ' + tasks[currentTaskIndex+1].name: 'will finish'}</motion.h3>
                 <p className="text-7xl">{String(currentTime.minutes).padStart(2, '0')} : {String(currentTime.seconds).padStart(2, '0')}</p>
                 <div className="text-gray-500">
                     {isLastTask || tasks.length === 1 ? 

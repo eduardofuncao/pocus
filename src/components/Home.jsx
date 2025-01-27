@@ -1,8 +1,18 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 
-const Home = ({tasks}) => {
-    const endTime = new Date(Date.now() + tasks.reduce((acc, task) => task.name? acc + task.time * 60 * 1000: acc, 0))//.toLocaleTimeString('en-US', {hour12: false});
+const Home = ({tasks, setTasks, finishTime, setFinishTime}) => {
+
+
+    const updateFinishedTime = () => {
+        setFinishTime(new Date(Date.now() + tasks.reduce((acc, task) => task.name? acc + task.time * 60 * 1000: acc, 0)))
+    }
+
+    useEffect(() => {
+        updateFinishedTime()
+    }, [tasks])
+        
+
     return (
         <div className="App font-quando flex flex-col h-screen">
         <nav className='navbar mt-4'>
@@ -12,7 +22,7 @@ const Home = ({tasks}) => {
             </div>
             <div className='flex flex-col flex-none items-center mr-6'>
                 <div className=''>Finish by</div>
-                <div className='text-4xl'>{String(endTime.getHours()).padStart(2, '0')}:{String(endTime.getMinutes()).padStart(2, '0')}</div>
+                <div className='text-4xl'>{String(finishTime.getHours()).padStart(2, '0')}:{String(finishTime.getMinutes()).padStart(2, '0')}</div>
             </div>
         </nav>
         <Outlet></Outlet>
