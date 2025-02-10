@@ -2,7 +2,7 @@
 
 # Pocus: Time Management Tool for Productivity
 
-> V0.5.0
+> V0.7.0
 
 Pocus is a minimalist time management tool designed to help you get things done when you have time to do so. Bundle up all your todos in a list when you feel productive and go through your tasks one by one until you finish them all.
 
@@ -12,7 +12,7 @@ We try to eliminate clutter by focusing on only the necessary information at all
 
 ![image](https://github.com/user-attachments/assets/8d431a60-425c-4b86-99f9-3c2b02c95114)
 
-## Try it out at [pocus.time](pocus.time)
+## Try it out at [pocus.eduardofuncao.com](pocus.eduardofuncao.com)
 
 ## Technologies Used
 - Vite
